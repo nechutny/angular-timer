@@ -48,21 +48,6 @@ var timerModule = angular.module('timer', [])
         //backward and forward compatibility.
         $scope.autoStart = $attrs.autoStart || $attrs.autostart;
 
-
-        $scope.language = $scope.language || 'en';
-        $scope.fallback = $scope.fallback || 'en';
-
-        //allow to change the language of the directive while already launched
-        $scope.$watch('language', function(newVal, oldVal) {
-          if(newVal !== undefined) {
-            i18nService.init(newVal, $scope.fallback);
-          }
-        });
-
-        //init momentJS i18n, default english
-        var i18nService = new I18nService();
-        i18nService.init($scope.language, $scope.fallback);
-
         //progress bar
         $scope.displayProgressBar = 0;
         $scope.displayProgressActive = 'active'; //Bootstrap active effect for progress bar
