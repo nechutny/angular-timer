@@ -1,7 +1,7 @@
 {
   "author": "Siddique Hameed",
   "name": "angular-timer",
-  "version": "1.5",
+  "version": "1.6",
   "homepage": "https://github.com/jurr90/angular-timer",
   "description": "Angular-Timer : A simple AngularJS directive demonstrating re-usability & interoperability",
   "repository": {
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "angular": ">= 1.0.7",
-    "moment": "~2.9.0",
+    "moment": "moment#~2.10.6",
     "humanize-duration": "~2.8.0"
   },
   "devDependencies": {
