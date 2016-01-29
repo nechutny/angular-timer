@@ -26,7 +26,7 @@ var timerModule = angular.module('timer', [])
         monthsS: '=?',
         yearsS: '=?'
       },
-      controller: ['$scope', '$element', '$attrs', '$timeout', 'I18nService', '$interpolate', 'progressBarService', function ($scope, $element, $attrs, $timeout, I18nService, $interpolate, progressBarService) {
+      controller: ['$scope', '$element', '$attrs', '$timeout', '$interpolate', 'progressBarService', function ($scope, $element, $attrs, $timeout, $interpolate, progressBarService) {
 
         // Checking for trim function since IE8 doesn't have it
         // If not a function, create tirm with RegEx to mimic native trim
@@ -40,21 +40,6 @@ var timerModule = angular.module('timer', [])
         //supporting both "autostart" and "auto-start" as a solution for
         //backward and forward compatibility.
         $scope.autoStart = $attrs.autoStart || $attrs.autostart;
-
-
-        $scope.language = $scope.language || 'en';
-        $scope.fallback = $scope.fallback || 'en';
-
-        //allow to change the language of the directive while already launched
-        $scope.$watch('language', function(newVal, oldVal) {
-          if(newVal !== undefined) {
-            i18nService.init(newVal, $scope.fallback);
-          }
-        });
-
-        //init momentJS i18n, default english
-        var i18nService = new I18nService();
-        i18nService.init($scope.language, $scope.fallback);
 
         //progress bar
         $scope.displayProgressBar = 0;
@@ -171,8 +156,6 @@ var timerModule = angular.module('timer', [])
           if ($attrs.startTime !== undefined){
             $scope.millis = moment().diff(moment($scope.startTimeAttr));
           }
-
-          timeUnits = i18nService.getTimeUnits($scope.millis);
 
           // compute time values based on maxTimeUnit specification
           if (!$scope.maxTimeUnit || $scope.maxTimeUnit === 'day') {
