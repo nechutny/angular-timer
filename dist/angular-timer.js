@@ -164,8 +164,6 @@ var timerModule = angular.module('timer', [])
             $scope.millis = moment().diff(moment($scope.startTimeAttr));
           }
 
-          timeUnits = i18nService.getTimeUnits($scope.millis);
-
           // compute time values based on maxTimeUnit specification
           if (!$scope.maxTimeUnit || $scope.maxTimeUnit === 'day') {
             $scope.seconds = Math.floor(($scope.millis / 1000) % 60);
