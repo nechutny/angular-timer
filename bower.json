@@ -24,6 +24,6 @@
     "bower_components"
   ],
   "resolutions": {
-    "moment": "~2.9.0"
+    "moment": "moment#~2.10.6"
   }
 }
