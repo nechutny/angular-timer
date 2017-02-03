@@ -99,6 +99,13 @@ var timerModule = angular.module('timer', [])
           }
         });
 
+        $scope.$watch('countdownattr', function(newValue, oldValue) {
+          if (newValue !== oldValue) {
+            $scope.reset();
+            calculateTimeUnits();
+          }
+        });
+
         $scope.start = $element[0].start = function () {
           $scope.startTime = $scope.startTimeAttr ? moment($scope.startTimeAttr) : moment();
           $scope.endTime = $scope.endTimeAttr ? moment($scope.endTimeAttr) : null;
